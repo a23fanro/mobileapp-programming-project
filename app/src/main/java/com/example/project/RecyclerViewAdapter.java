@@ -11,15 +11,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.project.R;
-
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<com.example.project.Mountain> items;
+    private List<TestClass> items;
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
-    RecyclerViewAdapter(Context context, List<com.example.project.Mountain> items, OnClickListener onClickListener) {
+    RecyclerViewAdapter(Context context, List<TestClass> items, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         this.onClickListener = onClickListener;
@@ -57,6 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public interface OnClickListener {
-        void onClick(com.example.project.Mountain item);
+        void onClick(TestClass item);
     }
 }

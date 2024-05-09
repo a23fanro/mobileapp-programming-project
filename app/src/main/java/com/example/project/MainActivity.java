@@ -20,8 +20,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
-    private final String JSON_FILE = "mountains.json";
-    private final ArrayList<Mountain> mountains = new ArrayList<>();
+    private final String JSON_FILE = "tests.json";
+    private final ArrayList<TestClass> testClasses = new ArrayList<>();
     private RecyclerViewAdapter adapter;
     private Gson gson;
 
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         //Log.d("heeeej", "HEJ" + mountains.size());
 
-        for (Mountain m : mountains) {
+        for (TestClass m : testClasses) {
             Log.d("ngt", "HEJ" + m.toString());
         }
 
-        adapter = new RecyclerViewAdapter(this, mountains, new RecyclerViewAdapter.OnClickListener() {
+        adapter = new RecyclerViewAdapter(this, testClasses, new RecyclerViewAdapter.OnClickListener() {
             @Override
-            public void onClick(Mountain item) {
+            public void onClick(TestClass item) {
                 Toast.makeText(MainActivity.this, item.toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -60,16 +60,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         Gson gson = new Gson();
 
-        Type type = new TypeToken<List<Mountain>>() {
+        Type type = new TypeToken<List<TestClass>>() {
         }.getType();
-        ArrayList<Mountain> jsonMountain = gson.fromJson(json, type);
-        mountains.addAll(jsonMountain);
+        ArrayList<TestClass> jsonTestClass = gson.fromJson(json, type);
+        testClasses.addAll(jsonTestClass);
 
         //mountains = gson.fromJson(json, type);
 
 
-        for (int i = 0; i < mountains.size(); i++) {
-            Log.d("HEJ", mountains.get(i).getName());
+        for (int i = 0; i < testClasses.size(); i++) {
+            Log.d("HEJ", testClasses.get(i).getName());
         }
         //  adapter.notifyDataSetChanged();
     }

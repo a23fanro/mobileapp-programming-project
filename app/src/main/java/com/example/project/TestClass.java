@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 //import java.io.Serial;
 
-public class Mountain {
+public class TestClass {
     @SerializedName("ID")
     public String id;
     @SerializedName("name")
@@ -20,11 +20,11 @@ public class Mountain {
     @SerializedName("cost")
     public int feet;
 
-    public Mountain(){
+    public TestClass(){
         name="Namn: ";
     }
 
-    public Mountain(String name){
+    public TestClass(String name){
         this.name=name;
     }
 
