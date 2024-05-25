@@ -12,14 +12,8 @@ public class TestClass {
     @SerializedName("name")
     public String name;
     public String type;
-    public String company;
-    public String location;
     public String category;
-    @SerializedName("size")
-    public int meters;
-    @SerializedName("cost")
-    public int feet;
-
+    public int size;
     public TestClass(){
         name="Namn: ";
     }
@@ -40,17 +34,4 @@ public class TestClass {
     public String toString(){
         return name;
     }
-
-
-
-    /*{
-    "ID": "mobilprog_kinnekulle",
-    "name": "Kinnekulle",
-    "type": "brom",
-    "company": "",
-    "location": "Skaraborg",
-    "category": "",
-    "size": 306,
-    "cost": 1004,
-    }*/
 }
