@@ -35,7 +35,6 @@ import java.util.concurrent.atomic.AtomicReference;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     public void showInternalWebPage(){
-        // TODO: Add your code for showing internal web page here
         findViewById(R.id.minwebviewsID);
         myWebView = findViewById(R.id.minwebviewsID);
         myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     }
 
     WebView myWebView;
-    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23fanro";
     private final String JSON_FILE = "tests.json";
     private final ArrayList<TestClass> testClasses = new ArrayList<>();
     private RecyclerViewAdapter adapter;
@@ -56,11 +55,11 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        new JsonFile(this, this).execute(JSON_FILE);
-        //new JsonTask(this).execute(JSON_URL);
-        //mountains.add(new Mountain("hej"));
+        //new JsonFile(this, this).execute(JSON_FILE);
+        new JsonTask(this).execute(JSON_URL);
+        testClasses.add(new TestClass("hej"));
 
-        //Log.d("heeeej", "HEJ" + mountains.size());
+        Log.d("heeeej", "HEJ" + testClasses.size());
 
         for (TestClass m : testClasses) {
             Log.d("ngt", "HEJ" + m.toString());
