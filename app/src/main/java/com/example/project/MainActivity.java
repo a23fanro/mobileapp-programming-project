@@ -18,37 +18,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import java.util.concurrent.atomic.AtomicReference;
-
-
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -56,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private WebView myWebView;
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23fanro";
-    private final ArrayList<TestClass> testClasses = new ArrayList<>();
+    private final ArrayList<Djurskalan> djurskalans = new ArrayList<>();
     private RecyclerViewAdapter adapter;
     private Gson gson;
 
@@ -74,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         new JsonTask(this).execute(JSON_URL);
 
-        adapter = new RecyclerViewAdapter(this, testClasses, new RecyclerViewAdapter.OnClickListener() {
+        adapter = new RecyclerViewAdapter(this, djurskalans, new RecyclerViewAdapter.OnClickListener() {
             @Override
-            public void onClick(TestClass item) {
+            public void onClick(Djurskalan item) {
                 Toast.makeText(MainActivity.this, item.toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -116,12 +88,12 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     public void onPostExecute(String json) {
         Log.d("MainActivity", "Received JSON: " + json);
 
-        Type type = new TypeToken<List<TestClass>>() {}.getType();
-        ArrayList<TestClass> jsonTestClass = gson.fromJson(json, type);
-        testClasses.addAll(jsonTestClass);
+        Type type = new TypeToken<List<Djurskalan>>() {}.getType();
+        ArrayList<Djurskalan> jsonDjurskalans = gson.fromJson(json, type);
+        djurskalans.addAll(jsonDjurskalans);
 
-        for (TestClass testClass : testClasses) {
-            Log.d("MainActivity", "Loaded item: " + testClass.getName());
+        for (Djurskalan djurskalan : djurskalans) {
+            Log.d("MainActivity", "Loaded item: " + djurskalan.getName());
         }
 
         adapter.notifyDataSetChanged(); // Notify adapter of data changes

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 //import java.io.Serial;
 
-public class TestClass {
+public class Djurskalan {
     @SerializedName("ID")
     public String id;
     @SerializedName("name")
@@ -14,24 +14,26 @@ public class TestClass {
     public String type;
     public String category;
     public int size;
-    public TestClass(){
-        name="Namn: ";
+
+    public Djurskalan() {
+        name = "Namn: ";
     }
 
-    public TestClass(String name){
-        this.name=name;
+    public Djurskalan(String name) {
+        this.name = name;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
+
     @NonNull
     @Override
-    public String toString(){
+    public String toString() {
         return name;
     }
 }
