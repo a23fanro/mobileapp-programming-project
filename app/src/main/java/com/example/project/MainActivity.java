@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         //new JsonFile(this, this).execute(JSON_FILE);
         new JsonTask(this).execute(JSON_URL);
-        testClasses.add(new TestClass("hej"));
+        //testClasses.add(new TestClass("hej"));
 
-        Log.d("heeeej", "HEJ" + testClasses.size());
+        //Log.d("heeeej", "HEJ" + testClasses.size());
 
-        for (TestClass m : testClasses) {
-            Log.d("ngt", "HEJ" + m.toString());
-        }
+        //for (TestClass m : testClasses) {
+            //Log.d("ngt", "HEJ" + m.toString());
+        //}
 
         adapter = new RecyclerViewAdapter(this, testClasses, new RecyclerViewAdapter.OnClickListener() {
             @Override
@@ -121,6 +121,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         for (int i = 0; i < testClasses.size(); i++) {
             Log.d("HEJ", testClasses.get(i).getName());
         }
-        //  adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 }
